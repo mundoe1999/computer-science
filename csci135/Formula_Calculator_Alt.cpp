@@ -1,9 +1,17 @@
 /*
 Name: Esteban Mundo
-Class: CSCI 135
 Task D: Calculating Multiple Formulas, with exponents
+This program is able to take in formulas from a plain text file
+and then able to print out the result of those formulas.
 
-Calculates the value of the formulas, also includes exponents
+For Example:
+10 + 7 - 2^;
+10^;
+//End of line
+//This will print out:
+13
+100
+
 */
 #include <iostream>
 
