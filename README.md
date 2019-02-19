@@ -4,7 +4,7 @@ This is a compilation of any programming assignments done at Hunter College. Mos
 ## Projects
 
 ### Software Analysis and Design 1 (csci135)
- - [x] Calculating multiple Fomulas
+ - [x] Formula Calculator
  - [ ] Phoneme Library Search
  - [ ] Space Robot Debris Collector
  
