@@ -18,8 +18,9 @@ For Example:
 
 
 int main(){
-    int number;
+    //Variable Instantiation 
     int sum = 0;
+    int number;
     char op;
     bool isAdding;
 
@@ -29,7 +30,6 @@ int main(){
     isAdding = true;
 
     while(std::cin >>  op) {
-        //Reverse the 
         if('^' == op){
             if(isAdding){sum = sum - number + number*number;}
             else{sum = sum + number - number*number;}
