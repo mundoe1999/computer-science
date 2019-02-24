@@ -5,7 +5,7 @@ This is a compilation of any programming assignments done at Hunter College. Mos
 
 ### Software Analysis and Design 1 (csci135)
  - [x] Formula Calculator
- - [ ] Phoneme Library Search
+ - [x] Phoneme Library Search
  - [ ] Space Robot Debris Collector
  
  ### Software Analysis and Design 2 
