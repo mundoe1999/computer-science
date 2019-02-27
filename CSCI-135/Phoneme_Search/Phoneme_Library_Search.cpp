@@ -291,7 +291,7 @@ int main(){
 	word = UpperCaseString(word);		//Makes the whole word uppercase
 	pronunciation = WordPronun(word);	//Gets the pronunciation
 	cout << endl;
-    //auto start_time = std::chrono::high_resolution_clock().now();
+    auto start_time = std::chrono::high_resolution_clock().now();
 	//Outputs the pronunciation
 	if(CheckIfValid(word) && pronunciation != "Not found"){
 		cout << "Pronunciation:	   " << pronunciation << endl;
@@ -324,8 +324,8 @@ int main(){
 		cout << "Not found" << endl;
 
 	}
-	//auto end_time = std::chrono::high_resolution_clock().now();
-    //std::chrono::duration<float, std::milli> runt_time = std::chrono::duration_cast<std::chrono::milliseconds>(end_time-start_time);
-    //double runtime_sum = runt_time.count();
-    //std::cout << runtime_sum << std::endl;
+	auto end_time = std::chrono::high_resolution_clock().now();
+    std::chrono::duration<float, std::milli> runt_time = std::chrono::duration_cast<std::chrono::milliseconds>(end_time-start_time);
+    double runtime_sum = runt_time.count();
+    std::cout << runtime_sum << std::endl;
 }

@@ -33,7 +33,7 @@ int main(){
 	std::cout << "Enter a String: ";
 	getline(std::cin, word);					//Gets the whole input
 
-    //auto start_time = std::chrono::high_resolution_clock().now();       //Record Start time
+    auto start_time = std::chrono::high_resolution_clock().now();       //Record Start time
 	UpperCaseString(word);		                //Makes the whole word uppercase
 	pronunciation = WordPronunciation(word);	//Gets the pronunciation
 	std::cout << std::endl;
@@ -63,10 +63,10 @@ int main(){
 
 	} else{std::cout << "Not found" << std::endl;}
 
-    //auto end_time = std::chrono::high_resolution_clock().now();
-    //std::chrono::duration<float, std::milli> runt_time = std::chrono::duration_cast<std::chrono::milliseconds>(end_time-start_time);
-    //double runtime_sum = runt_time.count();
-    //std::cout << runtime_sum << std::endl; //Prints out the time it took to run the program
+    auto end_time = std::chrono::high_resolution_clock().now();
+    std::chrono::duration<float, std::milli> runt_time = std::chrono::duration_cast<std::chrono::milliseconds>(end_time-start_time);
+    double runtime_sum = runt_time.count();
+    std::cout << runtime_sum << std::endl; //Prints out the time it took to run the program
 
 }
 
