@@ -9,8 +9,8 @@ This is a compilation of any programming assignments done at Hunter College. Mos
  - [ ] Space Robot Debris Collector
  
  ### Software Analysis and Design 2 
- - [ ] Genius Bar
- - [ ] Music Playlist
+ - [x] Genius Bar
+ - [x] Music Playlist
  - [ ] Linked Music Playlist
  - [ ] Maze Solver
  
