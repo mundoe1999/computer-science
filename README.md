@@ -15,7 +15,8 @@ This is a compilation of any programming assignments done at Hunter College. Mos
  - [ ] Maze Solver
  
  ### Web Production 1
- - [ ] Final Website
+ - [X] Department Website Remake
  
  ### Web Production 2
- TBA
+ - [ ] Breakout
+ - [ ] Glitch Tetris
