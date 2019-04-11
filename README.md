@@ -14,9 +14,4 @@ This is a compilation of any programming assignments done at Hunter College for 
  - [ ] Linked Music Playlist
  - [ ] Maze Solver
  
- ### Web Production 1
- - [X] Department Website Remake
  
- ### Web Production 2
- - [ ] Breakout
- - [ ] Glitch Tetris
