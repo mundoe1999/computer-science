@@ -1,5 +1,5 @@
-# School Assignments
-This is a compilation of any programming assignments done at Hunter College. Most of these assignments have been updated to be more polished, and to remove redundancies within the code itself. Although, the implementation of some of these coding assignments have been rewritten as the original coding for those projects was rather sub-optimal.
+# Computer science
+This is a compilation of any programming assignments done at Hunter College for the Computer Science Major. Most of these assignments have been updated to be more polished, and to remove redundancies within the code itself. Although, the implementation of some of these coding assignments have been rewritten as the original coding for those projects was rather sub-optimal.
 
 ## Projects
 
