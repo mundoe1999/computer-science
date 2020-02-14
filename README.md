@@ -3,15 +3,20 @@ This is a compilation of any programming assignments done at Hunter College for 
 
 ## Projects
 
-### Software Analysis and Design 1 (csci135)
+### Software Analysis and Design 1
  - [x] Formula Calculator
  - [x] Phoneme Library Search
  - [ ] Space Robot Debris Collector
  
- ### Software Analysis and Design 2 
+### Software Analysis and Design 2 
  - [x] Genius Bar
  - [x] Music Playlist
  - [ ] Linked Music Playlist
  - [ ] Maze Solver
- 
+
+## Projects in Other Repositories
+
+### Software Analysis and Design 3
+- [ ] NYC Street Data Tree Census Data
+- [ ] Processing MTA Subway Data
  
