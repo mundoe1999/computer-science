@@ -1,3 +1,11 @@
+/******************************************************************************
+File Name: CodeWordGenerator.cpp
+Author: Esteban Mundo
+Uploaded on: February 14, 2020
+Purpose:
+  Implementation File for CodeWordGenerator Class
+******************************************************************************/
+
 #include "CodeWordGenerator.hpp"
 
 std::string CodeWordGenerator::generateShortestWord(std::string pattern){
