@@ -1,13 +1,13 @@
-/*
-Name: Esteban Mundo
-Course: Software Analysis and Design I
-Assignment brief:
-This is an alternative implementation of the Phoneme Libray Search. This cleans up most, if not all,
-repetition within the original version.
+/******************************************************************************
+File Name: Phoneme_Library_Search_Alt.cpp
+Author: Esteban Mundo
+Uploaded on: February 27, 2019
+Updated on: April 27, 2020
+Purpose:
+  Altenative implementation to the original Phoneme Library Search. Removes
+  unecessary repetition and improves on code runtime.
+******************************************************************************/
 
-Runtime is significantly improved from previous version.
-
-*/
 
 #include <iostream>
 #include <cstdlib>
@@ -19,8 +19,7 @@ void UpperCaseString(std::string & originalString);
 void splitOnSpace(std::string s, std::string & before, std::string & after);
 bool CheckIfValid(std::string word);
 std::string WordPronunciation(std::string word);
-void PhonemeChecker(std::string orig_word, std::string orig_pronun, std::string dic_line, std::string & identical, std::string & add_phoneme,
-                    std::string & remove_phoneme, std::string & replace_phoneme);
+void PhonemeChecker(std::string orig_word, std::string orig_pronun, std::string dic_line, std::string words[]);
 
 int main(){
 	//Variables needed for this project
@@ -33,7 +32,7 @@ int main(){
 	std::cout << "Enter a String: ";
 	getline(std::cin, word);					//Gets the whole input
 
-    auto start_time = std::chrono::high_resolution_clock().now();       //Record Start time
+  auto start_time = std::chrono::high_resolution_clock().now(); //Record Start time
 	UpperCaseString(word);		                //Makes the whole word uppercase
 	pronunciation = WordPronunciation(word);	//Gets the pronunciation
 	std::cout << std::endl;
@@ -41,27 +40,29 @@ int main(){
 	//Outputs the pronunciation
 	if(CheckIfValid(word) && pronunciation != "Not found"){
         std::ifstream fin("cmudict.0.7a");
-        std::string string_identical_phoneme = "";
-        std::string string_add_phoneme       = "";
-        std::string string_remove_phoneme    = "";
-        std::string string_replace_phoneme   = "";
+        // Initialize an empty array
+        /* Positions :
+        *  0 -> Identical Phonemes
+        *  1 -> Additional Phoneme
+        *  2 -> Removed Phoneme
+        *  3 -> Replaced Phoneme
+        */
+        std::string words[4] = {"", "", "", ""}; 
 
 		while(fin){
             //ignore the commented lines
 			while(dic_line[0] == ';'){getline(fin, dic_line);}
             getline(fin, dic_line);
-            PhonemeChecker(word, pronunciation, dic_line, string_identical_phoneme, string_add_phoneme, string_remove_phoneme,
-                                string_replace_phoneme);
+            PhonemeChecker(word, pronunciation, dic_line, words);
         }
 
-        std::cout << "Pronunciation:	   " << pronunciation         << std::endl << std::endl;
-        std::cout << "Identical:        " << string_identical_phoneme << std::endl;
-        std::cout << "Add Phoneme:      " << string_add_phoneme       << std::endl;
-        std::cout << "Remove Phoneme:   " << string_remove_phoneme    << std::endl;
-        std::cout << "Replace:          " << string_replace_phoneme   << std::endl;
-        std::cout << std::endl;
+        std::cout << "Pronunciation:	  " << pronunciation << "\n\n";
+        std::cout << "Identical:        " << words[0] << '\n';
+        std::cout << "Add Phoneme:      " << words[1] << '\n';
+        std::cout << "Remove Phoneme:   " << words[2] << '\n';
+        std::cout << "Replace:          " << words[3] << "\n\n";
 
-	} else{std::cout << "Not found" << std::endl;}
+	} else std::cout << "Not found\n";
 
     auto end_time = std::chrono::high_resolution_clock().now();
     std::chrono::duration<float, std::milli> runt_time = std::chrono::duration_cast<std::chrono::milliseconds>(end_time-start_time);
@@ -71,12 +72,12 @@ int main(){
 }
 
 
-//=========================
-//FUNCTION IMPLEMENTATION
-//=========================
+//*****************************************************************************
+// FUNCTION IMPLEMENTATION
+//*****************************************************************************
 
-//HELPER FUNCTION
 
+// Helper Functions 
 char ConvertToUpper(char c){
     //Checks if the character is a letter
     if(c >= 'a' && c <= 'z'){return(c-32);}
@@ -145,8 +146,9 @@ std::string WordPronunciation(std::string word){
 	return "Not found";
 }
 
-void PhonemeChecker(std::string orig_word, std::string orig_pronun, std::string dic_line, std::string & identical, std::string & add_phoneme,
-                    std::string & remove_phoneme, std::string & replace_phoneme){
+// Actual implementations
+
+void PhonemeChecker(std::string orig_word, std::string orig_pronun, std::string dic_line,  std::string words[]){
     std::string dictionary_line;
     std::string dic_word;
     std::string pronun;
@@ -155,21 +157,19 @@ void PhonemeChecker(std::string orig_word, std::string orig_pronun, std::string 
     if(CheckIfValid(dic_word) && dic_word != orig_word){
         //If Phonemes are identical, return
         if(pronun == orig_pronun){
-            identical += " " + dic_word;
+            words[0] += " " + dic_word;
         } else{
-            std::string before_split_orig = "";
-            std::string after_split_orig = orig_pronun;
-            std::string before_split_dic = "";
-            std::string after_split_dic = pronun;
+            std::string orig_phoneme[2] = {"", orig_pronun};
+            std::string dict_phoneme[2] = {"", pronun};
 
             do{
-                splitOnSpace(after_split_orig, before_split_orig, after_split_orig);
-                splitOnSpace(after_split_dic, before_split_dic, after_split_dic);
-            } while(before_split_dic == before_split_orig && (after_split_orig != "" || after_split_dic != ""));
+                splitOnSpace(orig_phoneme[1], orig_phoneme[0], orig_phoneme[1]);
+                splitOnSpace(dict_phoneme[1], dict_phoneme[0], dict_phoneme[1]);
+            } while(dict_phoneme[0] == orig_phoneme[0] && (orig_phoneme[1] != "" || dict_phoneme[1] != ""));
 
-            //Checks if the Phonemes are identical
-            if(after_split_dic == after_split_orig && before_split_orig != "" && before_split_dic != ""){
-                replace_phoneme += " " + dic_word;
+            //Checks if the Phonemes are identical after one difference
+            if(dict_phoneme[1] == orig_phoneme[1] && orig_phoneme[0] != "" && dict_phoneme[0] != ""){
+                words[3] += " " + dic_word;
             }
             //Same Logic if Adding or Removing Phoneme
             else{
@@ -178,15 +178,15 @@ void PhonemeChecker(std::string orig_word, std::string orig_pronun, std::string 
                 std::string previous_phoneme;
 
                 //Add Phoneme
-                splitOnSpace(after_split_dic, previous_phoneme,temp_split_dic);
-                if(after_split_orig == temp_split_dic && previous_phoneme == before_split_orig){
-                    add_phoneme += " " + dic_word;
+                splitOnSpace(dict_phoneme[1], previous_phoneme,temp_split_dic);
+                if(orig_phoneme[1] == temp_split_dic && previous_phoneme == orig_phoneme[0]){
+                    words[1] += " " + dic_word;
                 }
 
                 //Remove Phoneme
-                splitOnSpace(after_split_orig, previous_phoneme,temp_split_orig);
-                if(after_split_dic == temp_split_orig && previous_phoneme == before_split_dic){
-                    remove_phoneme += " " + dic_word;
+                splitOnSpace(orig_phoneme[1], previous_phoneme,temp_split_orig);
+                if(dict_phoneme[1] == temp_split_orig && previous_phoneme == dict_phoneme[0]){
+                    words[2] += " " + dic_word;
                 }
             }
         }
