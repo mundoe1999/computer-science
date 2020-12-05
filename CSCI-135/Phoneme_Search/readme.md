@@ -4,6 +4,8 @@ This is the second assignment done for Software Analysis and Design I in Spring 
 ## How to run:
 Use g++ to compile either "Phoneme_Library_Search.cpp" or "Phoneme_Library_Search_Alt.cpp". Only one of these files is required to compile.
 
+Download the following file and place the file in the same directory: http://svn.code.sf.net/p/cmusphinx/code/trunk/cmudict/cmudict.0.7a
+
 In order to run, make sure that both executable and "cmudict.0.7a" files are on the same directory.
 
 ## What it does
