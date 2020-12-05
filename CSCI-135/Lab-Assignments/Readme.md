@@ -8,3 +8,4 @@ better documentation, better variable names, and overall better readability.
 1. Using if Statements
 2. Arrays
 3. File Reading
+4. Shape Drawing
