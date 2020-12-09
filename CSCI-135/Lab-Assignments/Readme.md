@@ -9,3 +9,4 @@ better documentation, better variable names, and overall better readability.
 2. Arrays
 3. File Reading
 4. Shape Drawing
+5. Functions
