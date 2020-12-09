@@ -10,4 +10,5 @@ better documentation, better variable names, and overall better readability.
 3. File Reading
 4. Shape Drawing
 5. Functions
-6. Text Encryption
+6. **Debugging Lab (NO CODE PROVIDED)** 
+7. Text Encryption
