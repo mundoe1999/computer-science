@@ -17,3 +17,4 @@ better documentation, better variable names, and overall better readability.
 10. Structures
 11. Pointers
 12. Recursion
+13. Classes
