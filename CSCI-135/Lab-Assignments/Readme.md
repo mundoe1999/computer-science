@@ -15,3 +15,4 @@ better documentation, better variable names, and overall better readability.
 8. File Manipulation
 9. Image Manipulation
 10. Structures
+11. Pointers
