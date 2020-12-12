@@ -12,3 +12,5 @@ better documentation, better variable names, and overall better readability.
 5. Functions
 6. **Debugging Lab (NO CODE PROVIDED)** 
 7. Text Encryption
+8. File Manipulation
+9. Image Manipulation
